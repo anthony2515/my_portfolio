@@ -1,32 +1,25 @@
 import { useEffect,useState } from "react"
 
-
+const links = {
+  linked_in:"https://www.linkedin.com/in/anthony-santiago-133a71bb/",
+  github:"https://github.com/anthony2515"
+}
 function App() {
   const [photo,setPhoto] = useState("")
-  const [width,setWidth] = useState(window.innerWidth)
-  useEffect(() => {
-    // Function to update the width
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
-
-    // Add event listener
-    window.addEventListener('resize', handleResize);
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener('resize', handleResize);
-  }, []); // Empty array means this effect runs only on mount and unmount
-
-   console.log(width)
+  const [aboutMe, setAboutMe] = useState("")
+  const [role,setRole] = useState("")
   useEffect(() => {
     (async() => {
-      const response = await fetch("http://localhost:3000/api/v1/photo")
-      
-      setPhoto(response.url)
-      console.log(response.headers.get())
+      const response_Photo = await fetch("http://localhost:3000/api/v1/photo")
+      const response_data = await fetch("http://localhost:3000/api/v1/about_me")
+      const data = await response_data.json()
+      setRole(data.role)
+      setAboutMe(data.about_me)
+      setPhoto(response_Photo.url)
+      console.log(response_Photo.headers.get())
     })()
   },[])
-
+  console.log(aboutMe)
   return (
     <>
       <section className = "about_me_section">
@@ -37,9 +30,9 @@ function App() {
         <a href="#">Education</a>
         <a href="#">Contact</a>
         </nav>
-        <div className = "photo">
-          {/* <img src = {photo}/> */}
-        </div>
+        <img height = "20%" src = {photo}/>
+        <h1>{role}</h1>
+        <p>{aboutMe}</p>
       </section>
       
     </>
