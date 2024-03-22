@@ -3,6 +3,21 @@ import { useEffect,useState } from "react"
 
 function App() {
   const [photo,setPhoto] = useState("")
+  const [width,setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    // Function to update the width
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array means this effect runs only on mount and unmount
+
+   console.log(width)
   useEffect(() => {
     (async() => {
       const response = await fetch("http://localhost:3000/api/v1/photo")
@@ -11,7 +26,7 @@ function App() {
       console.log(response.headers.get())
     })()
   },[])
- 
+
   return (
     <>
       <section className = "about_me_section">

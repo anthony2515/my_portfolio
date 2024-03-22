@@ -20,8 +20,9 @@ body{
   justify-content: center;
   align-items: center;
   gap:40px;
-  width: calc(100vw - 70%);
-  min-width:500px;
+  
+  width: calc(100vw - 900px);
+  
   height: 7.4vh;
   background: #211E1E;
   border: 1px solid #413E3E;
