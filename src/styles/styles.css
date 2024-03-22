@@ -1,0 +1,50 @@
+body{
+  margin:0;
+  padding:0;
+}
+
+
+.about_me_section{
+  height:100vh;
+  display:flex;
+  background: linear-gradient(180deg, #222F3E 0%, #211E1E 100%);;
+}
+.nav_bar{
+  position:fixed;
+  top:10px;
+  right:0;
+  left:0;
+  margin:auto;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap:40px;
+  width: calc(100vw - 70%);
+  min-width:500px;
+  height: 7.4vh;
+  background: #211E1E;
+  border: 1px solid #413E3E;
+  box-shadow: 9px 6px 32.9px rgba(16, 101, 228, 0.25);
+  border-radius: 76px;
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+  color:#1065E4;
+}
+.photo{
+  display:flex;
+  background:blue;
+  height:20vh;
+  width:20vh;
+  border-radius: 50%;
+  margin-inline:auto;
+  margin-top:100px;
+  
+}
+img{
+  border-radius: 50%;
+  
+}
