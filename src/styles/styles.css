@@ -17,12 +17,9 @@ body{
   margin:auto;
   display:flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap:40px;
-  
-  width: calc(100vw - 900px);
-  
+  width:30vw;
   height: 7.4vh;
   background: #211E1E;
   border: 1px solid #413E3E;
@@ -42,10 +39,26 @@ a{
   width:20vh;
   border-radius: 50%;
   margin-inline:auto;
-  margin-top:100px;
+  margin-top:5%;
   
 }
 img{
   border-radius: 50%;
   
+}
+@media screen and (max-width:395px)
+{
+  .nav_bar{
+  width:100vw;
+}
+.photo{
+  display:flex;
+  background:blue;
+  height:20vh;
+  width:20vh;
+  border-radius: 50%;
+  margin-inline:auto;
+  margin-top:20%;
+  
+}
 }
