@@ -1,16 +1,21 @@
+html{
+  scroll-behavior: smooth;
+}
 body{
   margin:0;
   padding:0;
+  
 }
-
 
 .about_me_section{
   height:100vh;
   display:flex;
   flex-direction: column;
-  background: linear-gradient(180deg, #222F3E 0%, #211E1E 100%);;
+  background: linear-gradient(180deg, #222F3E 0%, #211E1E 100%);
+  overflow-y: auto;
 }
 .nav_bar{
+  z-index:2;
   position:fixed;
   top:10px;
   right:0;
@@ -29,18 +34,18 @@ body{
   text-decoration: none;
 }
 
-a{
+.nav_bar a{
   text-decoration: none;
   color:#1065E4;
   font-family: "M PLUS 1p", sans-serif;
   transition: .2s;
 }
-a:hover{
+.nav_bar a:hover{
   color:#08aef5;
   font-size: 1.2rem;
   transition: .2s;
 }
-a:focus{
+.nav_bar a:focus{
   color:#08f5d5;
 }
 
@@ -48,21 +53,105 @@ img{
   border-radius: 50%;
   margin-inline:auto;
   margin-top:80px;
-}
 
-p{
+}
+.paragraph{
+  height:10px;
+  width:500px;
+  background-color: pink;
+  opacity:.5;
+}
+.aboutMe_description{
   color:white;
   font-family: "M PLUS 1p", sans-serif;
   font-weight: 400;
   font-size:1.5rem;
   font-style: normal;
   margin-inline:20%;
-  text-align:center
+  text-align:center;
 }
 h1{
   font-family: "M PLUS 1p", sans-serif;
   text-align: center;
-  color:#1065E4
+  color:#1065E4;
+  margin:0;
+
+}
+.links{
+  margin-top:10%;
+  height:10%;
+  width: 80%;
+  margin-inline: auto;
+  display:flex;
+  justify-content: center;
+  gap:5%;
+}
+.link{
+  display:flex;
+  align-items: center;
+}
+.link img{
+  
+  height: 90%;
+  margin-top:0;
+}
+/* Project Section */
+.projects_section{
+  height:100vh;
+  background-color: #211E1E;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.swiper_container{
+  width:90%;
+  height:80%;
+  background-color: #211E1E;
+  border:1px solid rgb(54, 54, 54);
+  border-radius:20px;
+  text-align:center;
+}
+.swiper_slide{
+  background-color: #211E1E; 
+  position:absolute;
+  z-index:-1;
+}
+.projects_header{
+  margin:10px;
+}
+.project_name{
+  text-align: center;
+  color:#08f5d5;
+  font-family: "M PLUS 1p", sans-serif;
+}
+.project_video{
+  background-color: green;
+  height:30%;
+  width:20%;
+  margin-inline:auto;
+}
+.project_techUsed_container{
+  display:flex;
+  justify-content: center;
+  color:#08f5d5;
+  font-family: "M PLUS 1p", sans-serif;
+  font-weight: 400;
+  font-size:1.2rem;
+}
+.p-techUsed{
+  margin:0;
+}
+.project_description{
+  color:white;
+  font-family:"M PLUS 1p",sans-serif;
+  margin-inline:20%;
+  font-size:1.5rem;
+}
+.github_repo_link{
+  margin-top:50px;
+  text-decoration: none;
+  font-size:1.5rem;
+  
 }
 /* max tablet width */
 @media screen and (max-width:1024px)
@@ -70,21 +159,46 @@ h1{
   .nav_bar{
     width:500px;
 }
-  p{
+.aboutMe_description{
     font-size:1rem;
   }
 }
 /* max phone width */
 @media screen and (max-width:430px)
 {
+  .about_me_section{
+    height:100dvh;
+  }
   .nav_bar{
   width:100vw;
   border-radius:0px;
   top:0;
   
 }
-  p{
+  .aboutMe_description{
     font-size:.9rem;
+  }
+  .link{
+    
+    display:flex;
+    align-items: center;
+  }
+  .link img{
+    height: 60%;
+    margin-top:0;
+  }
+  .project_video{
+    background-color: green;
+    height:30%;
+    width:80%;
+    margin-inline:auto;
+  }
+  .project_description{
+    color:white;
+    font-size:.8rem;
+    font-family:"M PLUS 1p",sans-serif;
+    margin-inline:12%;
+    
   }
 }
 /* minimum browser width */
