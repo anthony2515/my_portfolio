@@ -29,6 +29,8 @@ const Projects = ({ projects }) => {
             {/* <div className="project_video">{data.video}</div> */}
             <video className="project_video" controls width="100%">
             <source src={`https://my-portfolio-server-eosin.vercel.app/videos/${data.video}`} type="video/mp4" />
+            {/* <source src={`http://localhost:3000/videos/${data.video}`} type="video/mp4" /> */}
+
             Your browser does not support the video tag.
           </video>
             <div className='project_techUsed_container'>
