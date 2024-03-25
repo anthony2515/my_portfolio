@@ -14,6 +14,8 @@ function App() {
     (async() => {
       const response_Photo = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/photo")
       const response_data = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/about_me")
+   
+
       const data = await response_data.json()
       setProjects(data.projects)
       setRole(data.role)

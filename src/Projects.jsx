@@ -26,7 +26,11 @@ const Projects = ({ projects }) => {
           <SwiperSlide key={index} className="swiper_slide">
            
             <h2 id = "projects"className = "project_name">{data.project_name}</h2>
-            <div className="project_video">{data.video}</div>
+            {/* <div className="project_video">{data.video}</div> */}
+            <video className="project_video" controls width="100%">
+            <source src={`https://my-portfolio-server-eosin.vercel.app/videos/${data.video}`} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
             <div className='project_techUsed_container'>
             {data.tech_used.map((tech,index)=>{
               return <p className = "p-techUsed"key = {index}>{`\u2022${tech}\u00A0`}</p>
