@@ -124,11 +124,12 @@ h1{
   color:#08f5d5;
   font-family: "M PLUS 1p", sans-serif;
 }
-.project_video{
+.project_image{
   background-color: green;
   height:30%;
   width:20%;
   margin-inline:auto;
+  border-radius: 0;
 }
 .project_techUsed_container{
   display:flex;
@@ -187,7 +188,7 @@ h1{
     height: 60%;
     margin-top:0;
   }
-  .project_video{
+  .project_image{
     background-color: green;
     height:30%;
     width:80%;
