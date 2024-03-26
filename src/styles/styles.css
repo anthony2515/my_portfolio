@@ -49,7 +49,7 @@ body{
   color:#08f5d5;
 }
 
-img{
+.display_photo{
   border-radius: 50%;
   margin-inline:auto;
   margin-top:80px;
@@ -123,6 +123,7 @@ h1{
   text-align: center;
   color:#08f5d5;
   font-family: "M PLUS 1p", sans-serif;
+
 }
 .project_image{
   background-color: green;
@@ -130,10 +131,12 @@ h1{
   width:20%;
   margin-inline:auto;
   border-radius: 0;
+  padding-top:0;
 }
 .project_techUsed_container{
   display:flex;
   justify-content: center;
+  
   color:#08f5d5;
   font-family: "M PLUS 1p", sans-serif;
   font-weight: 400;
@@ -141,6 +144,7 @@ h1{
 }
 .p-techUsed{
   margin:0;
+  
 }
 .project_description{
   color:white;
@@ -196,10 +200,29 @@ h1{
   }
   .project_description{
     color:white;
-    font-size:.8rem;
+    font-size:70%;
     font-family:"M PLUS 1p",sans-serif;
     margin-inline:12%;
     
+  }
+  .github_repo_link{
+    margin-top:50px;
+    text-decoration: none;
+    font-size:70%;
+    
+  }
+  .project_techUsed_container{
+    display:flex;
+    justify-content: center;
+    color:#08f5d5;
+    font-family: "M PLUS 1p", sans-serif;
+    font-weight: 400;
+    font-size:70%;
+  }
+  .p-techUsed{
+    margin:0;
+ 
+    font-size: 90%;
   }
 }
 /* minimum browser width */

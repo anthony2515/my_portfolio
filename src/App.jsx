@@ -13,8 +13,8 @@ function App() {
   useEffect(() => {
     (async() => {
       const response_Photo = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/photo")
-      const response_data = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/about_me")
-      // const response_data = await fetch("http://localhost:3000/api/v1/about_me")
+      // const response_data = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/about_me")
+      const response_data = await fetch("http://localhost:3000/api/v1/about_me")
 
       const data = await response_data.json()
       setProjects(data.projects)
@@ -35,7 +35,7 @@ function App() {
         <a href="#">Education</a>
         <a href="#">Contact</a>
         </nav>
-        <img height = "20%" src = {photo}/>
+        <img className = "display_photo"height = "20%" src = {photo}/>
         <h1>{role}</h1>
         
         <p className = "aboutMe_description">{aboutMe}</p>
