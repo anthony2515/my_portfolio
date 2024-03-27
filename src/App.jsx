@@ -16,8 +16,8 @@ function App() {
   useEffect(() => {
     (async() => {
       const response_Photo = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/photo")
-      // const response_data = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/about_me")
-      const response_data = await fetch("http://localhost:3000/api/v1/about_me")
+      const response_data = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/about_me")
+      // const response_data = await fetch("http://localhost:3000/api/v1/about_me")
 
       const data = await response_data.json()
       setProjects(data.projects)
