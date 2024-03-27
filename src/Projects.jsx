@@ -16,16 +16,11 @@ const Projects = ({ projects }) => {
       navigation
       pagination={{ clickable: true }}
     >
-      {/* "video":"video1",
-    "project_name":"project_name1",
-    "description":"-adf;klj\n -asdf;lkj",
-    "tech_used":["nodejs","c++"],
-    "github_url":"url1" */}
       {projects.map((data, index) => {
         return (
           <SwiperSlide key={index} className="swiper_slide">
            
-            <h2 id = "projects"className = "project_name">{data.project_name}</h2>
+            <h2 className = "project_name">{data.project_name}</h2>
            
             <img className="project_image" src={`https://my-portfolio-server-eosin.vercel.app/images/${data.image}`} alt="project image" />
             <div className='project_techUsed_container'>
