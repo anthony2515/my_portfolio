@@ -3,6 +3,7 @@
   --font-family:"M PLUS 1p", sans-serif;
   --secondary-color:#08f5d5;
   --tertiary-color:#08aef5;
+  --border-color: rgb(54, 54, 54);
 }
 html{
   scroll-behavior: smooth;
@@ -135,7 +136,7 @@ h1{
 .project_image{
   background-color: green;
   height:30%;
-  width:20%;
+  width:calc(1vw + 20%);
   margin-inline:auto;
   border-radius: 0;
   padding-top:0;
@@ -220,6 +221,28 @@ th{
   gap:7%;
   font-size:calc(.3rem + 1vw)
 }
+/* Education section */
+.education_section{
+  background-color: var(--background);
+  padding-bottom:10px ;
+}
+.education_container{
+  border:1px solid var(--border-color);
+  
+  width:90%;
+  margin-inline:auto;
+  border-radius: 20px;
+  padding-inline:2%;
+  box-sizing: border-box;
+  font-family:var(--font-family);
+}
+.education_image{
+  margin-top:50px;
+  display:block;
+  width:calc(1vw + 10%);
+  border-radius:50%;
+  margin-inline: auto;
+}
 /* max tablet width */
 @media screen and (max-width:1024px)
 {
@@ -229,6 +252,14 @@ th{
 .aboutMe_description{
     font-size:1rem;
   }
+.project_image{
+  background-color: green;
+  height:30%;
+  width:calc(100vw - 50%);
+  margin-inline:auto;
+  border-radius: 0;
+  padding-top:0;
+}
 }
 /* max phone width */
 @media screen and (max-width:430px)
@@ -292,6 +323,10 @@ th{
     border-spacing: 0;
     font-size: .6rem;
   }
+  .education_image{
+    width:calc(10vw + 10%);
+    border-radius:50%;
   
+  }
 }
 /* minimum browser width */

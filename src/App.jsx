@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react"
 import Projects from "./Projects"
 import Skills from "./Skills"
+import Education from "./Education"
 const links = {
   linked_in:"https://www.linkedin.com/in/anthony-santiago-133a71bb/",
   github:"https://github.com/anthony2515"
@@ -13,9 +14,12 @@ function App() {
   const [techSkills,setTechSkills] = useState([])
   const [tools,setTools] = useState([])
   const [softSkills,setSoftSkills] = useState([])
+  const [education, setEducation] = useState([])
   useEffect(() => {
     (async() => {
       const response_Photo = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/photo")
+      // const response_Photo = await fetch("http://localhost:3000/api/v1/photo")
+
       const response_data = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/about_me")
       // const response_data = await fetch("http://localhost:3000/api/v1/about_me")
 
@@ -27,9 +31,10 @@ function App() {
       setTechSkills(data.skills[0].technical_skills)
       setTools(data.skills[0].tools)
       setSoftSkills(data.skills[0].soft_skills)
+      setEducation(data.education)
     })()
   },[])
-
+  
   return (
     <>
       <section className = "about_me_section">
@@ -37,8 +42,8 @@ function App() {
         <a href="#">Home</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#">Education</a>
-        <a href="#">Contact</a>
+        <a href="#education">Education</a>
+        {/* <a href="#">Contact</a> */}
         </nav>
         <img className = "display_photo"height = "20%" src = {photo}/>
         <h1>{role}</h1>
@@ -64,7 +69,10 @@ function App() {
       <h1 id = "skills" className = "section_header">Skills</h1>
         <Skills techSkills={techSkills} tools = {tools} softSkills = {softSkills}/>
       </section>
-      
+      <section className = "education_section">
+      <h1 id = "education" className = "section_header">Education</h1>
+      <Education education = {education}/>
+      </section>
     </>
   )
 }

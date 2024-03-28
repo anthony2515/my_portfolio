@@ -6,7 +6,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 const Projects = ({ projects }) => {
-  console.log('tang', projects)
+  
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -23,6 +23,8 @@ const Projects = ({ projects }) => {
             <h2 className = "project_name">{data.project_name}</h2>
            
             <img className="project_image" src={`https://my-portfolio-server-eosin.vercel.app/images/${data.image}`} alt="project image" />
+            {/* <img className="project_image" src={`http://localhost:3000/images/${data.image}`} alt="project image" /> */}
+
             <div className='project_techUsed_container'>
             {data.tech_used.map((tech,index)=>{
               return <p className = "p-techUsed"key = {index}>{`\u2022${tech}\u00A0`}</p>
