@@ -26,7 +26,7 @@ function App() {
       // const devPhotoRoute = import.meta.env.VITE_API_DEV_PHOTO_ROUTE
       // const devDataRoute = import.meta.env.VITE_API_DEV_DATA_ROUTE
       // const response_Photo = await fetch(`http://localhost:3000/${devPhotoRoute}`)
-      // const response_data = await fetch(`http://localhost:3000/${devDataRoute}`)
+      // const response_data = await fetch(`http://localhost:3000/${devDataRoute} `)
 
       const data = await response_data.json()
       setProjects(data.projects)
