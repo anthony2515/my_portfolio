@@ -1,3 +1,4 @@
+
 import { useEffect,useState } from "react"
 import Projects from "./Projects"
 import Skills from "./Skills"
@@ -17,11 +18,12 @@ function App() {
   const [education, setEducation] = useState([])
   useEffect(() => {
     (async() => {
-      const response_Photo = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/photo")
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const response_Photo = await fetch(`${apiUrl}/api/v1/photo`)
       // const response_Photo = await fetch("http://localhost:3000/api/v1/photo")
 
-      const response_data = await fetch("https://my-portfolio-server-eosin.vercel.app/api/v1/about_me")
-      // const response_data = await fetch("http://localhost:3000/api/v1/about_me")
+      const response_data = await fetch(`${apiUrl}/api/v1/data`)
+      // const response_data = await fetch("http://localhost:3000/api/v1/data")
 
       const data = await response_data.json()
       setProjects(data.projects)
