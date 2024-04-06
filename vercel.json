@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/:path*", "destination": "https://my-portfolio-server-eosin.vercel.app/:path*" },
+    { "source": "/:path*", "destination": "https://my-portfolio-server-eosin.vercel.app/:path*" }
   ]
 }
