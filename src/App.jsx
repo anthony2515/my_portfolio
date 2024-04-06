@@ -18,11 +18,12 @@ function App() {
   const [education, setEducation] = useState([])
   useEffect(() => {
     (async() => {
-      const apiUrl = import.meta.env.VITE_API_URL;
-      const response_Photo = await fetch(`${apiUrl}/api/v1/photo`)
+      const displayPhotoUrl = import.meta.env.VITE_API_URL_PHOTO;
+      const dataUrl = import.meta.env.VITE_API_URL_DATA;
+      const response_Photo = await fetch(displayPhotoUrl)
       // const response_Photo = await fetch("http://localhost:3000/api/v1/photo")
 
-      const response_data = await fetch(`${apiUrl}/api/v1/data`)
+      const response_data = await fetch(dataUrl)
       // const response_data = await fetch("http://localhost:3000/api/v1/data")
 
       const data = await response_data.json()
