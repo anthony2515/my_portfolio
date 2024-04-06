@@ -21,10 +21,12 @@ function App() {
       const displayPhotoUrl = import.meta.env.VITE_API_URL_PHOTO;
       const dataUrl = import.meta.env.VITE_API_URL_DATA;
       const response_Photo = await fetch(displayPhotoUrl)
-      // const response_Photo = await fetch("http://localhost:3000/api/v1/photo")
-
       const response_data = await fetch(dataUrl)
-      // const response_data = await fetch("http://localhost:3000/api/v1/data")
+
+      // const devPhotoRoute = import.meta.env.VITE_API_DEV_PHOTO_ROUTE
+      // const devDataRoute = import.meta.env.VITE_API_DEV_DATA_ROUTE
+      // const response_Photo = await fetch(`http://localhost:3000/${devPhotoRoute}`)
+      // const response_data = await fetch(`http://localhost:3000/${devDataRoute}`)
 
       const data = await response_data.json()
       setProjects(data.projects)

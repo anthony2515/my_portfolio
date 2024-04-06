@@ -54,12 +54,15 @@ function App() {
   const [education, setEducation] = useState([])
   useEffect(() => {
     (async() => {
-      const apiUrl = import.meta.env.VITE_API_URL;
-      const response_Photo = await fetch(`${apiUrl}/api/v1/photo`)
-      // const response_Photo = await fetch("http://localhost:3000/api/v1/photo")
+      const displayPhotoUrl = import.meta.env.VITE_API_URL_PHOTO;
+      const dataUrl = import.meta.env.VITE_API_URL_DATA;
+      const response_Photo = await fetch(displayPhotoUrl)
+      const response_data = await fetch(dataUrl)
 
-      const response_data = await fetch(`${apiUrl}/api/v1/data`)
-      // const response_data = await fetch("http://localhost:3000/api/v1/data")
+      // const devPhotoRoute = import.meta.env.VITE_API_DEV_PHOTO_ROUTE
+      // const devDataRoute = import.meta.env.VITE_API_DEV_DATA_ROUTE
+      // const response_Photo = await fetch(`http://localhost:3000/${devPhotoRoute}`)
+      // const response_data = await fetch(`http://localhost:3000/${devDataRoute}`)
 
       const data = await response_data.json()
       setProjects(data.projects)
@@ -79,5 +82,70 @@ function App() {
   Those commented out code are used for development purposes
 
   # Child Components
-  I assign each 
+  <p>On my portfolio I got different sections Project, Skills and Education and I assigned all these
+  components as a Children of the App component so I could just pass the props from the App component into a particular child</p>
 
+  <h2>Projects.jsx Component</h2>
+ On the App.jsx it returns one of this html markup. As you can see I put the <strong>Projects component</strong> in the section tag and pass the projects from the useState as a prop which is named as "projects" 
+
+
+ ```html
+ <section className = "projects_section">
+  <h1 id = "projects" className = "section_header">Projects</h1>
+  <Projects projects={projects} />
+</section>
+```
+On the Projects.jsx component you can see that I use the props to get those data that we fetch from the App.jsx component.
+<br />
+
+
+```javascript
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+const Projects = ({ projects }) => {
+  
+  return (
+    <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      className="swiper_container"
+      spaceBetween={30}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+    >
+      {projects.map((data, index) => {
+        return (
+          <SwiperSlide key={index} className="swiper_slide">
+           
+            <h2 className = "project_name">{data.project_name}</h2>
+           
+            <img className="project_image" src={`https://my-portfolio-server-eosin.vercel.app/images/${data.image}`} alt="project image" />
+            
+            <div className='project_techUsed_container'>
+            {data.tech_used.map((tech,index)=>{
+              return <p className = "p-techUsed"key = {index}>{`\u2022${tech}\u00A0`}</p>
+            })}
+            </div>
+            <p className = "project_description">{data.description}</p>
+            
+            <a className = "github_repo_link" href={data.github_url}>Check Github Repository</a>
+           
+          </SwiperSlide>
+        )
+      })}
+      
+    </Swiper>
+  )
+}
+export default Projects
+```
+
+Another thing that you might noticed is that I used <strong>Swiper.js</strong> to make a sliding effect for the list of projects the I've done
+<video controls src="Vite + React - Google Chrome 2024-04-06 18-37-31.mp4" title="Title"></video>
+
+# Other Components(Skills.jsx and Education.jsx)
+Same things applied to the other child components were we specify props into a component and use it to display expected outputs from the data that we fetch from App.jsx
